@@ -22,15 +22,80 @@ public:
     {
         cout << "Point(const Point&): copy constructor" << endl;
     }
-    ~Point()
+    virtual  ~Point()
     {
         cout << "~Point(): destructor" << endl;
     }
+    void setXY(int newX, int newY);
     void print() const
     {
-        cout << "Point: " << type << " (" << x << ", " << y << ")" << endl;
+        cout << type << " -> x = " << x << ", y = " << y << endl;
+    }
+
+    int getX() const{ return x;}
+
+    int getY() const{return y;}
+};
+
+void Point::setXY(int newX, int newY)
+{
+    x = newX;
+    y = newY;
+}
+
+
+class ColorPoint : public Point
+{
+private:
+    string color;
+
+public:
+
+    ColorPoint() : Point()
+    {
+        color = "white";
+        type = "ColorPoint";
+        cout << "ColorPoint(): default constructor" << endl;
+    }
+
+    ColorPoint(int newX, int newY, const string& newColor)
+        : Point(newX, newY)
+    {
+        color = newColor;
+        type = "ColorPoint";
+        cout << "ColorPoint(int, int, string): constructor with parameters" << endl;
+    }
+
+    ColorPoint(const ColorPoint& other)
+        : Point(other)
+    {
+        color = other.color;
+        cout << "ColorPoint(const ColorPoint&): copy constructor" << endl;
+    }
+
+    void PrintType()const;
+
+    ~ColorPoint()
+    {
+        cout << "~ColorPoint(): destructor" << endl;
+    }
+
+    void setColor(const string& newColor)
+    {
+        color = newColor;
+    }
+
+    void print() const
+    {
+        Point::print();
+        cout << "Color: " << color << endl;
     }
 };
+
+void ColorPoint::PrintType() const {
+    cout << "Type: " << type << endl;
+}
+
 
 int main()
 {
@@ -43,7 +108,7 @@ int main()
      Point p3(p2);
      p3.print();*/
 
-     cout << "=== Dynamic objects ===" << endl;
+     /*cout << " ~~~Dynamic objects~~~" << endl;
      Point* p4 = new Point();
      p4->print();
      Point* p5 = new Point(30, 40);
@@ -52,7 +117,18 @@ int main()
      p6->print();
      delete p4;
      delete p5;
-     delete p6;
+     delete p6;*/
+
+      cout << " ~~~Objects of ColorPoint~~~ " << endl;
+
+      ColorPoint cp1;
+      cp1.print();
+      ColorPoint cp2(5, 7, "red");
+      cp2.print();
+      ColorPoint cp3(cp2);
+      cp3.print();
+
+
 }
 
 
