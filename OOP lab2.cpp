@@ -132,6 +132,44 @@ public:
     }
 };
 
+class Circle
+{
+private:
+    Point* center;
+    int radius;
+
+public:
+    Circle() : center(new Point(0, 0)), radius(1)
+    {
+        cout << "Circle(): constructor" << endl;
+    }
+
+    Circle(int x, int y, int r) : center(new Point(x, y)), radius(r)
+    {
+        cout << "Circle(int, int, int): constructor" << endl;
+    }
+
+    Circle(const Circle& other)
+        : center(new Point(*other.center)), radius(other.radius)
+    {
+        cout << "Circle(const Circle&): copy constructor" << endl;
+    }
+
+    ~Circle()
+    {
+        cout << "~Circle(): destructor" << endl;
+        delete center;
+    }
+
+    void print() const
+    {
+        cout << "Circle center: ";
+        center->print();
+        cout << "Radius = " << radius << endl;
+    }
+};
+
+
 
 int main()
 {
@@ -162,11 +200,16 @@ int main()
       ColorPoint cp3(cp2);
       cp3.print();*/
 
-      cout << " ~~~Composition by object (Line)~~~ " << endl;
+      /*cout << " ~~~Composition by object (Line)~~~ " << endl;
       Point p11(10, 20);
       Point p22(30, 40);
       Line l1(p11, p22);
-      l1.print();
+      l1.print();*/
+
+     cout << " ~~~Composition pointer~~~ " << endl;
+     Circle c1(5, 6, 10);
+     c1.print();
+
 
 }
 
