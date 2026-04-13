@@ -96,11 +96,46 @@ void ColorPoint::PrintType() const {
     cout << "Type: " << type << endl;
 }
 
+class Line
+{
+private:
+    Point start;
+    Point finish;
+
+public:
+    Line() : start(0, 0), finish(1, 1)
+    {
+        cout << "Line(): constructor" << endl;
+    }
+    Line(const Line& other)
+        : start(other.start), finish(other.finish)
+    {
+        cout << "Line(const Line&): copy constructor" << endl;
+    }
+
+    Line(const Point& p1, const Point& p2) : start(p1), finish(p2)
+    {
+        cout << "Line(Point, Point): constructor" << endl;
+    }
+
+    ~Line()
+    {
+        cout << "~Line(): destructor" << endl;
+    }
+
+    void print() const
+    {
+        cout << "Line start: ";
+        start.print();
+        cout << "Line finish: ";
+        finish.print();
+    }
+};
+
 
 int main()
 {
      /*cout << " ~~~Objects of Point~~~ " << endl;
-
      Point p1;
      p1.print();
      Point p2(10, 20);
@@ -119,15 +154,19 @@ int main()
      delete p5;
      delete p6;*/
 
-      cout << " ~~~Objects of ColorPoint~~~ " << endl;
-
+      /*cout << " ~~~Objects of ColorPoint~~~ " << endl;
       ColorPoint cp1;
       cp1.print();
       ColorPoint cp2(5, 7, "red");
       cp2.print();
       ColorPoint cp3(cp2);
-      cp3.print();
+      cp3.print();*/
 
+      cout << " ~~~Composition by object (Line)~~~ " << endl;
+      Point p11(10, 20);
+      Point p22(30, 40);
+      Line l1(p11, p22);
+      l1.print();
 
 }
 
