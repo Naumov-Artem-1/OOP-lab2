@@ -236,23 +236,28 @@ int main()
      p7.print();*/
 
 
-     cout << " ~~~Copy of pointer~~~ " << endl;
+     //cout << " ~~~Copy of pointer~~~ " << endl;
+     //Point* p8 = new Point(70, 80);
+     //Point* p9 = p8;
+     //cout << "Before change:" << endl;
+     //p8->print();
+     //p9->print();
+     //p8->setXY(700, 800);
+     //cout << "After change through p8:" << endl;
+     //p8->print();
+     //p9->print();
+     //delete p8;
+     //p8 = nullptr;
+     //p9 = nullptr;
 
-     Point* p8 = new Point(70, 80);
-     Point* p9 = p8;
+     cout << " ~~~Base pointer to derived object~~~ " << endl;
 
-     cout << "Before change:" << endl;
-     p8->print();
-     p9->print();
-
-     p8->setXY(700, 800);
-
-     cout << "After change through p8:" << endl;
-     p8->print();
-     p9->print();
-     delete p8;
-     p8 = nullptr;
-     p9 = nullptr;
+     Point* p20 = new Point(1, 1);
+     Point* p21 = new ColorPoint(2, 2, "green");
+     p20->print();
+     p21->print();
+     delete p20;
+     delete p21;
 
 
 }
