@@ -206,10 +206,15 @@ int main()
       Line l1(p11, p22);
       l1.print();*/
 
-     cout << " ~~~Composition pointer~~~ " << endl;
+     /*cout << " ~~~Composition pointer~~~ " << endl;
      Circle c1(5, 6, 10);
-     c1.print();
+     c1.print();*/
 
+     cout << " ~~~Copy Line~~~ " << endl;
+     Point a(1, 2);
+     Point b(3, 4);
+     Line l1(a, b);
+     Line l2(l1);
 
 }
 
