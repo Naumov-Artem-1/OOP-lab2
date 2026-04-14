@@ -210,12 +210,20 @@ int main()
      Circle c1(5, 6, 10);
      c1.print();*/
 
-     cout << " ~~~Copy Line~~~ " << endl;
+     /*cout << " ~~~Copy Line~~~ " << endl;
      Point a(1, 2);
      Point b(3, 4);
      Line l1(a, b);
-     Line l2(l1);
+     Line l2(l1);*/
 
+     cout << " ~~~Copy Circle~~~ " << endl;
+
+     Circle c1(5, 6, 10);
+     Circle c2 = c1;
+
+     c1.print();
+     c2.print();
+        
 }
 
 
