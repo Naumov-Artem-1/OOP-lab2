@@ -216,14 +216,45 @@ int main()
      Line l1(a, b);
      Line l2(l1);*/
 
-     cout << " ~~~Copy Circle~~~ " << endl;
+    /* cout << " ~~~Copy Circle~~~ " << endl;
 
      Circle c1(5, 6, 10);
      Circle c2 = c1;
 
      c1.print();
-     c2.print();
+     c2.print();*/
         
+     /*cout << " ~~~Copy of object~~~ " << endl;
+     Point p6(50, 60);
+     Point p7 = p6;
+     cout << "Before change:" << endl;
+     p6.print();
+     p7.print();
+     p6.setXY(500, 600);
+     cout << "After change p6:" << endl;
+     p6.print();
+     p7.print();*/
+
+
+     cout << " ~~~Copy of pointer~~~ " << endl;
+
+     Point* p8 = new Point(70, 80);
+     Point* p9 = p8;
+
+     cout << "Before change:" << endl;
+     p8->print();
+     p9->print();
+
+     p8->setXY(700, 800);
+
+     cout << "After change through p8:" << endl;
+     p8->print();
+     p9->print();
+     delete p8;
+     p8 = nullptr;
+     p9 = nullptr;
+
+
 }
 
 
